@@ -1,0 +1,834 @@
+@charset "UTF-8";
+
+*{margin: 0;padding: 0;}
+a{text-decoration: none; color: black;}
+ul{list-style: none;}
+img{border: 0; vertical-align: top;}
+
+#header{
+    width: 100%;
+    height: 120px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.5s;
+    z-index: 2;
+}
+#header:hover{
+    background-color: white;
+}
+#header .top_menu{
+    width: 1500px;
+    margin: 0 auto;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    height: 120px;
+}
+/* .logo{margin-left: 150px;} */
+.gnb{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 50px; */
+    font-size: 20px;
+    width: 600px;
+    /* background-color: antiquewhite; */
+}
+.gnb .sub {position: absolute;}
+.gnb .sub li{
+    box-sizing: border-box;
+    background-color: white;
+    width: 150px; height: 40px;
+    border: 1px solid rgb(190, 190, 190);
+    padding-top: 3px; padding-left: 6px;
+}
+.gnb .sub li:nth-of-type(1){border-radius: 10px 10px 0 0;}
+.gnb .sub :last-child{border-radius: 0 0 10px 10px;}
+.gnb .sub li:hover {
+    background-color: rgb(235, 235, 235);
+    color: red;
+}
+.gnb .sub li a{
+    color: rgb(63, 63, 63);
+    font-size: 15px;
+}
+.gnb .red a{color: red; font-weight: bold;}
+
+
+
+
+.login{
+    display: flex;
+    margin-left: 200px;
+}
+.login a{
+    font-size: 15px;
+    color: gray;
+}
+.login li{margin: 0 5px;}
+.login .v-line{
+    border-left : 1px solid gray;
+    margin-top: 9px;
+    height: 10px;
+}
+.he_icon{
+    display: flex;
+    width: 130px;
+    justify-content: space-between;
+}
+.he_icon li:nth-of-type(3) {position: relative;}
+.he_icon li:nth-of-type(3) .ic_cir{
+    box-sizing: border-box;
+    width: 15px; height: 15px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    border-radius: 50px;
+    left: 17px; top: -3px;
+    position: absolute;
+}
+.he_icon li:nth-of-type(3) .ic_cir p{font-size: small;}
+
+.he_icon>li.person{
+    position: relative;
+}
+.he_icon>li.person .sub{
+    display: none;
+    position: absolute;
+    left:-50px; top:40px;
+    border:1px solid rgb(189, 189, 189);
+    background-color: white;
+    border-radius: 10px;
+}
+.he_icon>li.person:hover .sub{display: block;}
+.he_icon>li.person .sub li{
+    box-sizing: border-box;
+    width: 150px; height: 35px;
+    padding-top: 7px; padding-left: 6px;
+    
+}
+.person .sub>li:nth-of-type(1){
+    border-radius: 10px 10px 0 0;
+}
+.person .sub :last-child{border-radius: 0 0 10px 10px;}
+/* .person .sub>li:hover{background-color: rgb(235, 235, 235);} */
+
+
+
+
+
+
+
+/* 모바일 아코디언 메뉴 */
+.accodian{
+    width: 240px; height: 100vh;
+    background-color: white;
+    position: fixed;
+    left: -100%; top: 0;
+    z-index: 1;
+    transition: left 0.4s ease;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+}
+.accodian.active {left: 0;}
+.lnb>li>a{
+    display: block;
+    height: 45px;
+    border-top: 1px solid rgb(185, 181, 181);
+    border-bottom: 1px solid rgb(185, 181, 181);
+    line-height: 45px;
+    padding-left: 25px;
+    background-color: url(images/KakaoTalk_20250526_140716686.png);
+    background-repeat: no-repeat;
+    background-position: 160px center;
+}
+
+.lnb>li>a.active{
+    background-color: url(images/KakaoTalk_20250526_140716686_01.png);
+}
+.lnb>li ul{
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 0;
+    background-color: rgb(228, 228, 228);
+    display: none;
+}
+.lnb>li ul li a{
+    color: black;
+    display: block;
+    text-indent: 20px;
+}
+.lnb>li ul li:hover a{color: orange;}
+
+.ac_first {
+    display: flex;
+    font-size: small;
+    height: 45px;
+    align-items: center;
+}
+.ac_first>li:nth-of-type(1) {margin-left: 24px;}
+.ac_first>li:nth-of-type(2) {margin-left: 12px;}
+.ac_first>li:nth-of-type(3) {margin-left: 4px;}
+.ac_first>li:nth-of-type(4) {margin-left: 4px;}
+.ac_first>li:nth-of-type(5) {margin-left: 40px;}
+.accodian h1 {
+    font-size: 20px;
+    border-top: 1px solid rgb(185, 181, 181);
+    line-height: 45px;
+    padding-left: 18px;
+}
+.accodian h1 a{color: red;}
+.accodian>ul:nth-of-type(2) {
+    padding-top: 10px;
+    font-size: small;
+    font-weight: lighter;
+    padding-left: 24px;
+    line-height: 25px;
+}
+
+#section{
+    width: 100%;
+    text-align: center;
+    margin-top: -120px;
+}
+h1{font-size: 40px;}
+h2{
+    font-size: 18px;
+    font-weight: lighter;
+    color: gray;
+    margin-top: 18px;
+}
+/* carousel */
+.carousel{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    height: 1012px;
+    position: relative;
+    overflow: hidden;
+}
+.carousel .panel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: margin-left 0.5s ease;
+}
+.carousel .panel li{
+    flex: 0 0 100%;
+    height: 1012px;
+}
+.carousel .panel li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+}
+.carousel .side_btn>li{
+    width: 60px; height: 60px;
+    position: absolute; top: 50%;
+    text-align: center;
+    line-height: 60px; cursor: pointer;
+    font-size: 60px;
+    color: white;
+}
+.carousel .side_btn .prev{left:30px;}
+.carousel .side_btn .next{right:30px;}
+
+.carousel .circle{
+    position: absolute;
+    top: 95%; left: 50%;
+    display: flex;
+    align-items: center;
+}
+.carousel .circle li{
+    box-sizing: border-box;
+    width: 8px; height: 8px;
+    background-color: white;
+    border-radius: 50px;
+    margin: 0 8px;
+    align-items: center;
+    cursor: pointer;
+}
+.carousel .circle .ci_red{
+    width: 15px; height: 15px;
+    border: 2px solid red;
+}
+
+.circle>li.ci_red,
+.circle>li.click{
+    width: 15px; height: 15px;
+    border: 2px solid red;
+}
+
+
+/* 제품라인업 */
+.line_up{
+    text-align: center;
+    height: 1530px;
+}
+.line_up h1{padding-top: 155px;}
+.li_square{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 130px;
+}
+.line_up .li_square:nth-of-type(2){margin-top:20px;}
+.li_square ul{width: 380px;}
+.li_picture {
+    width: 380px; height: 380px;
+    background-image: url(../images/b9824b7091770c826539aeacb1cd1a2e.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+.li_picture p{
+    box-sizing: border-box;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    width: 80px;
+    font-size: smaller;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.li_square > ul:hover .li_picture > p {
+    opacity: 1;
+    transform: translateY(10px);
+}
+.li_picture ul{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.534);
+    height: 90px;
+    margin-top:270px;
+    opacity: 0;
+    transform: translateY(90px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.li_square > ul:hover .li_picture > ul {
+    opacity: 1;
+    transform: translateY(0px);
+}
+.li_picture ul li {
+    margin: 0 20px;
+    margin-top: 30px;
+}
+.li_picture ul .v-line{
+    border-left: 2px solid black;
+    height: 30px;
+}
+.li_text{
+    text-align: center;
+    font-size: 24px;
+    margin-top: 25px;
+    line-height: 40px;
+}
+.li_text .red{color: red;}
+.li_text .gray{
+    color: gray;
+    font-size: 16px;
+}
+
+.li_square ul:nth-of-type(2) > .li_picture {background-image: url(../images/1d7da4db37c4b2d2e3e3c354b2eb5eb0.jpg);}
+.li_square ul:nth-of-type(3) > .li_picture {background-image: url(../images/92c869979007d4924ed2db0305b473e5.jpg);}
+.li_square ul:nth-of-type(4) > .li_picture {background-image: url(../images/75afd19248bb486b58ef4b09cc6c8bd4.jpg);}
+.li_square:nth-of-type(2) ul:nth-of-type(1) > .li_picture {background-image: url(../images/bbec551e5e3660c4ade9ab454bd61e52.jpg);}
+.li_square:nth-of-type(2) ul:nth-of-type(2) > .li_picture {background-image: url(../images/d5765f1ce8e6aa5a723ced1a1041c0ff.jpg);}
+.li_square:nth-of-type(2) ul:nth-of-type(3) > .li_picture {background-image: url(../images/c0018effffa7bee9a88a92f0805f3856.jpg);}
+.li_square:nth-of-type(2) ul:nth-of-type(4) > .li_picture {background-image: url(../images/3de8a19c1d1fe3131b08e3fecac632d4.jpg);}
+
+/* [SOYJOY X HYERI] */
+.pink_back {
+    width: 100%; height: 1100px;
+    background-color: rgb(238, 217, 222);
+    text-align: center;
+    position: relative;
+}
+.pink_back h1{padding-top: 100px;}
+.video{margin-top: 40px;}
+.video iframe {
+    position: absolute;
+    inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
+    width: 70%;               /* 기본: 70% */
+    height: 70%;
+    margin: auto;             /* 가운데 정렬 */
+    margin-top: 250px;            
+    pointer-events: none;
+}
+
+/* 판매처 */
+.buy{height: 1050px;}
+.buy h1{padding-top: 140px;}
+.bu_Where{
+    display: flex;
+    font-size: 20px;
+    color: gray;
+    justify-content: center;
+    margin-top: 70px;
+}
+.bu_Where li{margin: 0 10px;}
+.bu_red {
+  color: red;
+  font-weight: bold;
+}
+.bu_Where .bu_line {
+  transform: scaleX(0);
+  transition: transform 0.3s ease;    
+}
+.bu_Where .bu_red .bu_line {
+  border-bottom: 3px solid red;
+  transform: scaleX(1);
+}
+.bu_Where .v-line{
+    border-left: 2px solid gray;
+    height: 20px; margin-top: 5px;
+}
+.box_back{margin-top: 100px;}
+.box_back>li{display: none;}
+.bu_box:nth-of-type(1){display: block;}
+.bu_box>ul{
+    display: flex;
+    justify-content: space-around;
+}
+.bu_box .box_main{
+    box-sizing: border-box;
+    width: 380px; height: 198px;
+    background-image: url(../images/14495f01a55f146fff65c9ee736177b7.png);
+    background-repeat: no-repeat;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-position: center center;
+    overflow: hidden;
+}
+.bu_box ul:nth-of-type(2){margin-top: 20px;}
+.bu_box .box_main p{
+    height: 48px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    line-height: 48px;
+    margin-top: 148px;
+    border-radius: 0 0 10px 10px;
+    transform: translateY(50px);
+    transition: transform 0.5s;
+}
+.box_main:hover p {
+    transform: translateY(0px);
+} 
+
+.bu_box .box_main:nth-child(2){background-image: url(../images/41b1c90410a3e7cb564e87ba8594b01f.png);}
+.bu_box .box_main:nth-child(3){background-image: url(../images/076b6a3f93315632a066693d65433bb5.png);}
+.bu_box .box_main:nth-child(4){background-image: url(../images/a9e1b37ae4d9ff73646b7586feb2b9de.png);}
+.bu_box ul:nth-child(2) .box_main:nth-child(1){background-image: url(../images/9ad20369b99f7754f95ee354acdc7b0c.png);}
+.bu_box ul:nth-child(2) .box_main:nth-child(2){background-image: url(../images/34ddc4818727bfb644cc410da3ce54ec.png);}
+.bu_box ul:nth-child(2) .box_main:nth-child(3){background-image: url(../images/66e019bf067750083e61339bf66e2cac.png);}
+.bu_box ul:nth-child(2) .box_main:nth-child(4){
+    background-image: url(../images/66e019bf067750083e61339bf66e2cac.png);
+    visibility: hidden
+}
+
+.bu_box:nth-of-type(2) ul:nth-of-type(1) .box_main:nth-of-type(1) {background-image: url(../images/716f6dec291b5898eb8ce92de8a05439.png);}
+.bu_box:nth-of-type(2) ul:nth-of-type(1) .box_main:nth-of-type(2) {background-image: url(../images/b9d79fb999ce5c8420527a5fdcbf1f6e.png);}
+.bu_box:nth-of-type(2) ul:nth-of-type(1) .box_main:nth-of-type(3) {background-image: url(../images/f9ee37303cd9ae0c4188f7542e06b574.png);}
+.bu_box:nth-of-type(2) ul:nth-of-type(1) .box_main:nth-of-type(4) {background-image: url(../images/473b7dbc310e9c2376f373ebe5ecabc6.png)}
+.bu_box:nth-of-type(2) ul:nth-of-type(2) .box_main:nth-of-type(1) {background-image: url(../images/df3dbc7bec4880f7b5290fbe08e92d3a.png)}
+.bu_box:nth-of-type(2) ul:nth-of-type(2) .box_main:nth-of-type(2) {background-image: url(../images/9df5ced89f1d567321bf8a88f4542793.png)}
+.bu_box:nth-of-type(2) ul:nth-of-type(2) .box_main:nth-of-type(3) {background-image: url(../images/bbe97ff0e37d729415a1a9d8558ef842.png)}
+
+
+
+
+
+/* TOP버튼 */
+.top{
+    border: 1px solid gray;
+    background-color: white;
+    width: 72px; height: 72px;
+    border-radius: 100px;
+    cursor: pointer;
+    position: fixed;
+    top: 85%; right: 55px;
+    cursor: pointer;
+}
+.top p:nth-of-type(1){
+    width: 20px; height: 20px;
+    border-top: 2px solid gray;
+    border-right: 2px solid gray;
+    rotate: -45deg;
+    margin-left: 25px; margin-top: 16px;
+}
+.top p:nth-of-type(2){
+    height: 47px;
+    border-left: 2px solid gray;
+    margin-left: 35px; margin-top: -24px;
+}
+
+
+#footer{
+    height: 481px;
+    border-top: 1px solid gray;
+    font-size: smaller;
+}
+.fo_icon{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1500px;
+    margin-top: 80px;
+}
+.fo_icon ul{
+    display: flex;
+}
+.fo_icon ul li {
+    box-sizing: border-box;
+    padding-left: 10px; padding-right: 10px;
+    padding-top: 5px; padding-bottom: 5px;
+    margin: 0 8px;
+    border-radius: 20px;
+    background-color: rgb(170, 170, 170);
+}
+.fo_icon ul li a{color: white;}
+.fo_middle{
+    margin-left: 48px;
+    margin-top: 40px;
+}
+.fo_middle li{display: flex; color: gray;}
+.fo_middle li .v-line{
+    border-left: 1px solid gray;
+    height: 7px;
+    margin-top: 5px;
+}
+.fo_middle li p{margin: 0 10px;}
+.fo_middle li a {color: gray;}
+.fo_middle li:nth-of-type(4){margin-top: 30px;}
+.fo_last{
+    display: flex;
+    margin-left: 48px;
+    color: gray;
+    margin-top: 50px;
+}
+.fo_last ul{
+    display: flex;
+    gap: 10px;
+    margin-left: 1475px;
+}
+
+
+/* 반응형 */
+/* 479px ~ 1024px 레아아웃 */
+@media all and (min-width: 479px) and (max-width: 1024px){
+    #header{
+        width: 100%;
+    }
+    .logo{margin-left: 20px;}
+    .gnb{
+    gap: 20px;
+    margin-left: 60px;
+    width: 420px;
+    font-size: 16px;
+    }
+    .gnb .sub li{padding-top: 6px;}
+    .login{
+    display: flex;
+    margin-left: 25px;
+    width: 120px;
+    }
+    .login a{font-size: 13px;}
+    .he_icon{
+        gap: 14px;
+        margin-left: 25px;
+    }
+    .person .sub li{
+        font-size: 14px;
+        width: 100px;
+        padding-top: 10px;
+    }
+
+    #section{width: 100%;}
+    /* carousel */
+
+
+    /* 소이조이몰 회원 혜택 */
+    .boon img{width: 1007px;}
+
+    /* 제품라인업 */
+    .line_up{height: 810px;}
+    .line_up h1{
+        padding-top: 32px;
+        font-size: 30px;
+    }
+    .li_square{margin-top: 40px;}
+    .li_picture {
+        width: 201px; height: 201px;
+    }
+    .li_picture ul{
+        height: 60px;
+        margin-top: 130px;
+        opacity: 1;
+        transform: translateY(90px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        margin-left: -90px;
+    }
+    .li_picture i {font-size: 20px !important;}
+    .li_picture ul li {
+        margin: 0 8px;
+        margin-top: 12px;
+    }
+    .li_picture ul .v-line{
+    border-left: 2px solid black;
+    height: 20px;
+    }
+    .li_text{
+    font-size: 18px;
+    margin-top: 6px;
+    line-height: 25px;
+    }
+
+    /* [SOYJOY X HYERI] */
+    .pink_back{height: 636px;}
+    .pink_back h1{
+        padding-top: 32px;
+        font-size: 30px;
+    }
+    .video iframe {
+        margin-top: 150px; 
+    }
+    /* 판매처 */
+    .buy{height: 560px;}
+    .buy h1{
+        padding-top: 32px;
+        font-size: 30px;
+    }
+    .bu_Where{margin-top: 20px;}
+    .box_back{margin-top: 30px;}
+    .bu_box>ul{gap: 10px;}
+    .bu_box .box_main{width: 360px; height: 140px;}
+    .bu_box .box_main p{margin-top: 94px;}
+    .bu_box .box_main:nth-child(2){background-image: url(../images/41b1c90410a3e7cb564e87ba8594b01f.png);}
+    .bu_box .box_main:nth-child(3){background-image: url(../images/076b6a3f93315632a066693d65433bb5.png);}
+    .bu_box .box_main:nth-child(4){background-image: url(../images/a9e1b37ae4d9ff73646b7586feb2b9de.png);}
+    .bu_box ul:nth-child(2) .box_main:nth-child(1){background-image: url(../images/9ad20369b99f7754f95ee354acdc7b0c.png);}
+    .bu_box ul:nth-child(2) .box_main:nth-child(2){background-image: url(../images/34ddc4818727bfb644cc410da3ce54ec.png);}
+    .bu_box ul:nth-child(2) .box_main:nth-child(3){
+        background-image: url(../images/66e019bf067750083e61339bf66e2cac.png);
+        background-size: 80%;
+    }
+    .bu_box ul:nth-child(2) .box_main:nth-child(4){
+        background-image: url(../images/66e019bf067750083e61339bf66e2cac.png);
+        visibility: hidden
+    }
+
+    .bu_box:nth-of-type(2) ul:nth-of-type(1) .box_main:nth-of-type(1) {background-image: url(../images/716f6dec291b5898eb8ce92de8a05439.png);}
+    .bu_box:nth-of-type(2) ul:nth-of-type(1) .box_main:nth-of-type(2) {background-image: url(../images/b9d79fb999ce5c8420527a5fdcbf1f6e.png);}
+    .bu_box:nth-of-type(2) ul:nth-of-type(1) .box_main:nth-of-type(3) {
+        background-image: url(../images/f9ee37303cd9ae0c4188f7542e06b574.png);
+        background-size: 80%;
+    }
+    .bu_box:nth-of-type(2) ul:nth-of-type(1) .box_main:nth-of-type(4) {background-image: url(../images/473b7dbc310e9c2376f373ebe5ecabc6.png)}
+    .bu_box:nth-of-type(2) ul:nth-of-type(2) .box_main:nth-of-type(1) {
+        background-image: url(../images/df3dbc7bec4880f7b5290fbe08e92d3a.png);}
+    .bu_box:nth-of-type(2) ul:nth-of-type(2) .box_main:nth-of-type(2) {
+        background-image: url(../images/9df5ced89f1d567321bf8a88f4542793.png);
+        background-size: 900px;
+    }
+    .bu_box:nth-of-type(2) ul:nth-of-type(2) .box_main:nth-of-type(3) {
+        background-image: url(../images/bbe97ff0e37d729415a1a9d8558ef842.png);
+        background-size: 900px;
+    }
+    
+    /* 푸터 */
+    #footer{height: 400px;}
+    .fo_icon{
+        margin-top: 30px;
+        gap: 620px;
+    }
+    .fo_last{margin-top: 30px;}
+    .fo_last ul{margin-left: 590px;}
+}
+
+
+/* 0px ~ 480px 레아아웃 */
+@media all and (min-width: 0px) and (max-width: 500px){
+    #header{
+        width: 100%;
+        height: 80px;
+    }
+    .logo{margin-left: 20px;}
+    .logo img{width: 80%;}
+    .gnb{display: none;}
+    .login{display: none;}
+    .person{display: none;}
+    .he_icon{margin-left: 160px;}
+    .hambur {
+        width: 20px; height: 3px;
+        background-color: black;
+        position: relative;
+        margin-top: 13px;
+    }
+    .hambur:before{
+        content: "";
+        display: block;
+        width: 20px;
+        height: 3px;
+        background-color: black;
+        position: absolute;
+        left: 0px; top: -10px;
+    }
+    .hambur:after{
+        content: "";
+        display: block;
+        width: 20px;
+        height: 3px;
+        background-color: black;
+        position: absolute;
+        left: 0px; top: 10px;
+    }
+    /* 모바일 아코디언 메뉴 */
+    .accodian{display: block;}
+
+    #section{width: 100%;}
+    /* carousel */
+    .carousel{height: 940px;}
+    .panel li:nth-of-type(1) {
+        background-image: url(../images/KakaoTalk_20250529_141215772.jpg);
+        background-size: 500px;
+        background-repeat: no-repeat;
+    }
+    .panel li:nth-of-type(2) {
+        background-image: url(../images/KakaoTalk_20250529_141215772_02.jpg);
+        background-size: 500px;
+        background-repeat: no-repeat;
+    }
+    .panel li:nth-of-type(3) {
+        background-image: url(../images/KakaoTalk_20250529_141215772_03.jpg);
+        background-size: 500px;
+        background-repeat: no-repeat;
+    }
+    .panel li:nth-of-type(4) {
+        background-image: url(../images/KakaoTalk_20250529_141215772_04.jpg);
+        background-size: 500px;
+        background-repeat: no-repeat;
+    }
+    .panel li:nth-of-type(1) img{display: none;}
+    .panel li:nth-of-type(2) img{display: none;}
+    .panel li:nth-of-type(3) img{display: none;}
+    .panel li:nth-of-type(4) img{display: none;}
+
+    .carousel .circle li{
+    background-color: white;
+    border: 2px solid red;
+    }
+    .carousel .circle .ci_red{background-color: red;}
+
+    /* 소이조이몰 회원 혜택 */
+    .boon{
+        width: 100%; height: 520px;
+        background-image: url(../images/KakaoTalk_20250529_141215772_01.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .boon img {display: none;}
+
+    /* 제품 라인업 */
+    .line_up {height: 1470px;}
+    .li_square {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .li_square > ul {
+        width: calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+    .li_picture {overflow: visible !important}
+    .li_picture p{
+        opacity: 1;
+        transform: translateY(170px) translateX(-50px) !important;
+    }
+    /*li_picture 아이콘디자인 수정 */
+    .li_picture ul{
+        justify-content: left !important;
+        background-color: transparent !important;
+        height: auto !important;
+        margin-top: 228px !important;
+        margin-left: 0px;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .li_picture .v-line{display: none;}
+    .li_picture ul li{
+        box-sizing: border-box;
+        background-color: rgb(214, 214, 214);
+        width: 30px; height: 30px;
+        border-radius: 5px;
+        align-items: center;
+    }
+    .li_picture ul li:nth-of-type(1) svg{width: 25px;}
+    .li_picture ul li:nth-of-type(3) i{padding-top: 5px;}
+
+    .li_text{
+        text-align: left;
+        font-size: 14px;
+    }
+    .li_text .gray{
+        font-size: 12px;
+    }    
+    /* [SOYJOY X HYERI] */
+    .pink_back {height: 350px;}
+    .pink_back h1 {font-size: 18px;}
+    .video iframe {
+    position: absolute;
+    inset: 0;                
+    width: 80%;               
+    height: 50%;
+    margin: auto;            
+    margin-top: 130px;            
+    pointer-events: none;
+    }
+
+    /* 판매처 */
+    .buy {
+        height: 850px;
+    }
+    .bu_box>ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .box_main {
+        display: block;
+        width: calc(50% - 10px);
+    }
+    .bu_box .box_main{
+        width: 200px; height: 140px;
+    }    
+
+
+    /* footer */
+    #footer{height: 400px;}
+    .fo_icon{gap: 200px;}
+    .fo_middle{
+        margin-top: 10px;
+        font-size: 10px;
+        margin-left: 14px;
+    }
+    .fo_middle>li .v-line{
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+    .fo_middle>li:nth-child(2) {display: block;}
+    .fo_middle>li:nth-child(3) {display: block;}
+    .fo_middle>li:nth-child(2) .v-line {height: 0; overflow: hidden;}
+    .fo_middle>li:nth-child(3) .v-line {height: 0; overflow: hidden;}
+    .fo_last{
+        margin-left: 14px;
+        font-size: 10px;
+    }
+    .fo_last ul{margin-left: 190px;}
+
+}
+

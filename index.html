@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>소이조이</title>
+    <link rel="stylesheet" href="css/index.css">
+    <!-- "폰트어썸" -->
+    <script src="https://kit.fontawesome.com/cc943f4a0b.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //헤더 gnb 메뉴 스르륵
+            $(".gnb>li").mouseenter(function(){
+                $(this).children(".sub").stop().slideDown();
+            });
+
+            $(".gnb>li").mouseleave(function(){
+                $(this).children(".sub").stop().slideUp();
+            });
+            //모바일 아코디언 메뉴
+            $(".lnb>li>a").click(function(e){
+                e.preventDefault();
+                if($(this).hasClass("active")){
+                    $(".lnb>li>a").siblings("ul").stop().slideUp(500);
+                    $(".lnb>li>a").removeClass("active");
+                    $(this).removeClass("active");
+                    $(this).siblings("ul").slideUp(500);
+                }else{
+                    $(".lnb>li>a").siblings("ul").stop().slideUp(500);
+                    $(".lnb>li>a").removeClass("active");
+                    $(this).addClass("active");
+                    $(this).siblings("ul").slideDown(500);
+                }
+            });    
+            //햄버거 누를때 나오기
+            $(".hambur").click(function (e) {
+                e.preventDefault();
+                $(".accodian").toggleClass("active");
+            });
+            // carousel
+            let wid = $(".carousel").width();
+            let list = $(".ci_red").index();
+            let count = $(".panel>li").length;
+            function moveSlide(index) {
+                $(".panel").stop().animate({ "margin-left": -wid * index });
+                $(".circle>li").removeClass("ci_red");
+                $(".circle>li").eq(index).addClass("ci_red");
+            }
+
+            $(".next").click(function(){
+                list = (list + 1) % count;
+                moveSlide(list);
+            });
+
+            $(".prev").click(function(){
+                list = (list - 1 + count) % count;
+                moveSlide(list);
+            });
+
+            $(".circle>li").click(function(){
+                list = $(this).index();
+                moveSlide(list);
+            });
+
+            $(window).on('resize', function() {
+                wid = $(".carousel").width();
+                moveSlide(list);
+            });    
+            //판매처
+            $(".bu_Where > li").not(".v-line").click(function(){
+                let list = $(this).index(".bu_Where > li:not(.v-line)");
+    
+                $(".box_back>li").hide();                            
+                $(".box_back>li").eq(list).show();
+                
+                $(".bu_Where > li").removeClass("bu_red");
+
+                $(this).addClass("bu_red");
+            });     
+            //TOP버튼
+            $(".top").click(function(){
+                $("html, body").animate({ scrollTop: 0}, 500);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="header">
+        <div class="top_menu">
+            <div class="logo"><a href="#"><img src="images/19e3d243f9de28d3f6af47ac8bfd5a8b.png" alt=""></a></div>
+            <ul class="gnb">
+                <li class="red"><a href="#">🎁버라이어티팩</a></li>
+                <li>
+                    <a href="#">제품</a>
+                    <ul class="sub">
+                        <li><a href="#">제품 전체</a></li>
+                        <li><a href="#">4개입</a></li>
+                        <li><a href="#">12개입</a></li>
+                        <li><a href="#">버라이어티팩</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">브랜드 스토리</a>
+                    <ul class="sub">
+                        <li><a href="#">브랜드 소개</a></li>
+                        <li><a href="#">제품 라인업</a></li>
+                        <li><a href="#">Soylution</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                    <ul class="sub">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">1:1 문의</a></li>
+                        <li><a href="#">자주묻는 질문</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">판매처</a>
+                    <ul class="sub">
+                        <li><a href="#">온라인 판매처</a></li>
+                        <li><a href="#">오프라인 판매처</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="login">
+                <li><a href="#">로그인</a></li>
+                <li class="v-line"></li>
+                <li><a href="#">회원가입</a></li>
+            </ul>
+            <ul class="he_icon">
+                <li>
+                    <a href="#">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 14C22 18.4183 18.4183 22 14 22C9.58172 22 6 18.4183 6 14C6 9.58172 9.58172 6 14 6C18.4183 6 22 9.58172 22 14ZM20.3287 21.7429C18.6049 23.1536 16.4013 24 14 24C8.47715 24 4 19.5228 4 14C4 8.47715 8.47715 4 14 4C19.5228 4 24 8.47715 24 14C24 16.4013 23.1536 18.6049 21.7429 20.3287L27.7071 26.2929C28.0976 26.6834 28.0976 27.3166 27.7071 27.7071C27.3166 28.0976 26.6834 28.0976 26.2929 27.7071L20.3287 21.7429Z" fill="#2D2A26"></path></svg>
+                    </a>
+                </li>
+                <li class="person">
+                    <a href="#">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 27C7.02279 23.7939 11.1267 21.8235 15.6471 21.8235C20.1674 21.8235 24.2713 23.7939 27.2941 27M21.4706 10.8235C21.4706 14.0398 18.8633 16.6471 15.6471 16.6471C12.4308 16.6471 9.82353 14.0398 9.82353 10.8235C9.82353 7.60728 12.4308 5 15.6471 5C18.8633 5 21.4706 7.60728 21.4706 10.8235Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="#">마이페이지</a></li>
+                        <li><a href="#">주문/배송조회</a></li>
+                        <li><a href="#">관심상품</a></li>
+                        <li><a href="#">최근 본 상품</a></li>
+                        <li><a href="#">고객센터</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="ic_cir"><p>0</p></div>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><div class="hambur"></div></a>
+                </li>
+            </ul>
+        </div>
+        <!-- 모바일 아코디언 메뉴 -->
+        <ul class="accodian">
+            <div class="ac_first">
+                <li><a href="#">
+                    KR 
+                    <i class="fa-solid fa-chevron-down"></i>
+                </li></a>
+                <li><a href="#">로그인</a></li>
+                <li>|</li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#"><i class="fa-solid fa-xmark fa-2xl"></i></a></li>
+            </div>
+            <h1><a href="#">🎁버라이어티팩</a></h1>
+            <ul class="lnb">
+                <li>
+                    <a href="#">제품</a>
+                    <ul>
+                        <li><a href="#">제품전체</a></li>
+                        <li><a href="#">4개입</a></li>
+                        <li><a href="#">12개입</a></li>
+                        <li><a href="#">버라이어티팩</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">브랜드 스토리</a>
+                    <ul>
+                        <li><a href="#">브랜드 소개</a></li>
+                        <li><a href="#">제품 라인업</a></li>
+                        <li><a href="#">Soylution</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">고객센터</a>
+                    <ul>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">1:1 문의하기</a></li>
+                        <li><a href="#">자주묻는 질문</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">판매처</a>
+                    <ul>
+                        <li><a href="#">온라인 판매처</a></li>
+                        <li><a href="#">오프라인 판매처</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">주문/배송조회</a></li>
+                <li><a href="#">관심상품</a></li>
+                <li><a href="#">최근 본 상품</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+        </ul>
+    </div>
+    <div id="section">
+        <!-- carousel -->
+        <div class="carousel">
+            <ul class="panel">
+                <li><img src="images/913232278a72bf7a8385e405833bbc05.jpg" alt=""></li>
+                <li><img src="images/ae6cb309e34e31a5f4d1eeffc2e4dd13.jpg" alt=""></li>
+                <li><img src="images/f4292cc7b1acbb6051ec33ab3e307d8a.jpg" alt=""></li>
+                <li><img src="images/fb2ad329dd8266bb75825fd0911abbea.jpg" alt=""></li>
+            </ul>
+            <ul class="side_btn">
+                <li class="prev"><img src="images/prev.svg" alt=""></li>
+                <li class="next"><img src="images/next.svg" alt=""></li>
+            </ul>
+            <ul class="circle">
+                <li class="ci_red"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <!-- 소이조이몰 회원 혜택 -->
+        <div class="boon"><img src="images/boon_img.jpg" alt=""></div>
+        <!-- 제품 라인업 -->
+        <div class="line_up">
+            <h1>제품 라인업</h1>
+            <h2>소이조이 대표 제품들을 만나보세요</h2>
+            <div class="li_square">
+                <ul>
+                    <li class="li_picture">
+                        <p>like!128</p>
+                        <ul>
+                            <li>
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </li>
+                            <li class="v-line"></li>
+                            <li><i class="fa-regular fa-heart fa-2x"></i></li>
+                        </ul>
+                    </li>
+                    <li class="li_text">
+                        소이조이 애플 12개입<br>
+                        <span class="red">17%</span> 16,900원 <del class="gray">20,400원</del>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="li_picture">
+                        <p>like!134</p>
+                        <ul>
+                            <li>
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </li>
+                            <li class="v-line"></li>
+                            <li><i class="fa-regular fa-heart fa-2x"></i></li>
+                        </ul>
+                    </li>
+                    <li class="li_text">
+                        소이조이 버라이어티 팩 8종 16개입<br>
+                        <span class="red">14%</span> 25,900원 <del class="gray">30,200원</del>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="li_picture">
+                        <p>like!11</p>
+                        <ul>
+                            <li>
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </li>
+                            <li class="v-line"></li>
+                            <li><i class="fa-regular fa-heart fa-2x"></i></li>
+                        </ul>
+                    </li>
+                    <li class="li_text">
+                        소이조이 후르츠&베이크드치즈 12개<br>
+                        <span class="red">17%</span> 16,900원 <del class="gray">20,400원</del>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="li_picture">
+                        <p>like!15</p>
+                        <ul>
+                            <li>
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </li>
+                            <li class="v-line"></li>
+                            <li><i class="fa-regular fa-heart fa-2x"></i></li>
+                        </ul>
+                    </li>
+                    <li class="li_text">
+                        소이조이 마카다미아&레몬 12개입<br>
+                        <span class="red">17%</span> 16,900원 <del class="gray">20,400원</del>
+                    </li>
+                </ul>                
+            </div>
+            <div class="li_square">
+                <ul>
+                    <li class="li_picture">
+                        <p>like!14</p>
+                        <ul>
+                            <li>
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </li>
+                            <li class="v-line"></li>
+                            <li><i class="fa-regular fa-heart fa-2x"></i></li>
+                        </ul>
+                    </li>
+                    <li class="li_text">
+                        소이조이 스위트포테이토 12개입<br>
+                        <span class="red">17%</span> 16,900원 <del class="gray">20,400원</del>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="li_picture">
+                        <p>like!11</p>
+                        <ul>
+                            <li>
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </li>
+                            <li class="v-line"></li>
+                            <li><i class="fa-regular fa-heart fa-2x"></i></li>
+                        </ul>
+                    </li>
+                    <li class="li_text">
+                        소이조이 바나나 12개입<br>
+                        <span class="red">17%</span> 16,900원 <del class="gray">20,400원</del>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="li_picture">
+                        <p>like!4</p>
+                        <ul>
+                            <li>
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </li>
+                            <li class="v-line"></li>
+                            <li><i class="fa-regular fa-heart fa-2x"></i></li>
+                        </ul>
+                    </li>
+                    <li class="li_text">
+                        소이조이 블루베리 12개입<br>
+                        <span class="red">17%</span> 16,900원 <del class="gray">20,400원</del>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="li_picture">
+                        <p>like!4</p>
+                        <ul>
+                            <li>
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.7837 11.1111C20.7837 12.4077 20.2797 13.6512 19.3826 14.5681C18.4855 15.4849 17.2687 16 16 16C14.7313 16 13.5145 15.4849 12.6174 14.5681C11.7203 13.6512 11.2163 12.4077 11.2163 11.1111M5.99388 10.3795L5.15673 20.6461C4.97688 22.8517 4.88696 23.9544 5.25176 24.8051C5.57227 25.5525 6.1276 26.1693 6.8298 26.5578C7.62902 27 8.71181 27 10.8774 27H21.1226C23.2882 27 24.371 27 25.1702 26.5578C25.8724 26.1693 26.4277 25.5525 26.7482 24.8051C27.113 23.9544 27.0231 22.8517 26.8433 20.6461L26.0061 10.3795C25.8514 8.48181 25.774 7.53297 25.3628 6.81482C25.0007 6.18243 24.4615 5.6754 23.8148 5.35914C23.0804 5 22.1487 5 20.2855 5L11.7145 5C9.85125 5 8.91961 5 8.18519 5.35914C7.53846 5.6754 6.99928 6.18243 6.63718 6.81482C6.22599 7.53297 6.14862 8.48181 5.99388 10.3795Z" stroke="#2D2A26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </li>
+                            <li class="v-line"></li>
+                            <li><i class="fa-regular fa-heart fa-2x"></i></li>
+                        </ul>
+                    </li>
+                    <li class="li_text">
+                        소이조이 아몬드&초콜릿 12개입<br>
+                        <span class="red">17%</span> 16,900원 <del class="gray">20,400원</del>
+                    </li>
+                </ul>                
+            </div>            
+        </div> 
+        <!-- [SOYJOY X HYERI] -->
+        <div class="pink_back">
+            <h1>[SOYJOY X HYERI] 출출해서 간식 찾는 사이사이, 소이조이!</h1>
+            <h2>소이조이X혜리의 두번째 만남❤️</h2>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/JDf8sAB_Fxg?background=1&enablejsapi=1&mute=1&controls=0&loop=1&playlist=JDf8sAB_Fxg&autoplay=true"
+                frameborder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+        </div>
+        <!-- 판매처 -->
+        <div class="buy">
+            <h1>판매처</h1>
+            <h2>다양한 판매처에서 소이조이를 만나보세요.</h2>
+            <ul class="bu_Where">
+                <li class=".bu_red">
+                    <p>온라인 판매처</p>
+                    <div class="bu_line"></div>
+                </li>
+                <li class="v-line"></li>
+                <li>
+                    <p>오프라인 판매처</p>
+                    <div class="bu_line"></div>
+                </li>
+            </ul>
+            <ul class="box_back">            
+                <li class="bu_box">
+                    <ul>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>                 
+                    </ul>
+                    <ul>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>                 
+                    </ul>
+                </li>
+                <li class="bu_box">
+                    <ul>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>                 
+                    </ul>
+                    <ul>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>
+                        <li class="box_main"><p>구매하러 가기</p></li>                 
+                    </ul>
+                </li>
+            </ul>
+        </div> 
+        <!-- TOP버튼 -->
+        <div class="top">
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="fo_icon">
+            <div><img src="images/71f1bb73a0b116da41d86f50b228749f.png" alt=""></div>
+            <ul>
+                <li><a href="">로그인</a></li>
+                <li><a href="">회원가입</a></li>
+            </ul>
+        </div>
+        <ul class="fo_middle">        
+            <li>고객센터 : 080-020-5252 <p class="v-line"></p> 평일 오전 10시 ~ 오후 5시 (주말, 공휴일 휴무)</li>
+            <li>
+                한국오츠카제약 <p class="v-line"></p> 대표자 : 문성호 <p class="v-line"></p> 주소 : 서울특별시 강남구 역삼로 226, 오츠카비전빌딩 <p class="v-line"></p> 사업자등록번호 : 220-81-14465
+                <a href="">[사업자정보확인]</a>
+            </li>
+            <li>통신판매업신고번호 : 2011-서울강남-02906 <p class="v-line"></p> 개인정보관리책임자: 홍승창 (kop-sj@kr.otsuka.com) <p class="v-line"></p> Hosting by Cafe24</li>
+            <li><a href="#">이용약관</a> <p class="v-line"></p> <a href="#">개인정보 처리방침</a> <p class="v-line"></p> <a href="#">이용안내</a> <p class="v-line"></p> <a href="#">자주 묻는 질문</a></li>
+        </ul>
+        <ul class="fo_last">
+            <li>©2024 소이조이 공식몰. all rights reserved.</li>
+            <li>
+                <ul>
+                    <li><a href=""><img src="images/8442c623bb5ca088e38947a508117706.png" alt=""></a></li>
+                    <li><a href=""><img src="images/13f19a3c95aed3dddeef51cda2aeec74.png" alt=""></a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
