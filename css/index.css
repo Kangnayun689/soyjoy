@@ -34,7 +34,10 @@ img{border: 0; vertical-align: top;}
     width: 600px;
     /* background-color: antiquewhite; */
 }
-.gnb .sub {position: absolute;}
+.gnb .sub {
+    position: absolute;
+    display: none;
+}
 .gnb .sub li{
     box-sizing: border-box;
     background-color: white;
